@@ -20,7 +20,9 @@ const Routes = () => {
         <hr/>
         <Route exact path="/" component={Home}/>
         <Route path="/products" component={Products}/>
-        <Route path='/product/:productName' component={Product}/>
+        <Route path="/products">
+          <Route path='/products/:productName' component={Product}/>
+        </Route>
         <Route path='/cart' component={Cart}/>
         <Route path='/companies' component={Companies}/>
         <Route path='/login' component={Login}/>
