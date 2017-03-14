@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
-import NavLink from './CustomLink'
+import CustomLink from './CustomLink'
 
 export default class OrdersPage extends Component {
-  product_link(name) {
-    return(
-      <NavLink to={`product/${name}`}>{name}</NavLink>
-    )
-  }
-
   render() {
     return(
       <div>
@@ -25,11 +19,9 @@ export default class OrdersPage extends Component {
             <tr>
               <td>lorem@lorem.com</td>
               <td>
-                {this.product_link('lorem')}
+                <CustomLink to={'products/foo'}>Foo</CustomLink>
                 /
-                {this.product_link('ipsum')}
-                /
-                {this.product_link('dolor')}
+                <CustomLink to={'products/bar'}>Bar</CustomLink>
               </td>
               <td>Maecenas ut neque enim. Quisque varius mi condimentum velit porta, vitae vulputate ante elementum. Nunc aliquet lacus in quam tincidunt, eu tristique purus ullamcorper.</td>
               <td><input type="checkbox" name="insurance" value="1" checked=""/></td>
