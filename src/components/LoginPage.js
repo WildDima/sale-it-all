@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Nav from '../components/nav';
 
-export default class Login extends Component {
+export default class LoginPage extends Component {
   render() {
     return (
       <div>

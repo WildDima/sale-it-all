@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import NavLink from './navlink'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import CustomLink from './CustomLink'
+import IndexLink from './IndexLink'
 
 export default class Nav extends Component {
   render() {
     return(
       <nav>
-        <NavLink to='/'>Home</NavLink>|
-        <NavLink to='/products'>Catalog</NavLink>|
-        <NavLink to='/companies'>Companies</NavLink>|
-        <NavLink to='/cart'>Cart</NavLink>|
-        <NavLink to='/login'>SignIn/SignUp|</NavLink>
+        <IndexLink>Home</IndexLink>|
+        <CustomLink to='/products'>Catalog</CustomLink>|
+        <CustomLink to='/companies'>Companies</CustomLink>|
+        <CustomLink to='/cart'>Cart</CustomLink>|
+        <CustomLink to='/login'>SignIn/SignUp|</CustomLink>
         Admin:
-        <NavLink to='/orders'>Orders</NavLink>|
-        <NavLink to='/company'>Company</NavLink>|
+        <CustomLink to='/orders'>Orders</CustomLink>|
+        <CustomLink to='/company'>Company</CustomLink>|
       </nav>
     )
   }

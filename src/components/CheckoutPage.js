@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavLink from './navlink'
+import NavLink from './CustomLink'
 
-export default class Checkout extends Component {
+export default class CheckoutPage extends Component {
   render() {
     return(
       <div>
