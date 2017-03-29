@@ -7,7 +7,7 @@ const combineRouters = require('koa-combine-routers')
 
 const logger = require('./src/middlewares/logger')
 const apiRouter = require('./src/api/apiRouter')
-const router = require('./src/middlewares/router')
+const defaultRouter = require('./src/middlewares/router')
 const notFound = require('./src/middlewares/notFound')
 
 require('./src/api/products/index')
@@ -32,16 +32,13 @@ const app = new Koa()
 
 app.use(logger)
 
-app.use(router.routes())
-app.use(apiRouter.routes())
-
 app.use(mount('/public', static(Path.resolve("public"))))
 
-// app.use(router.get('/*',function* (next) {
-//   yield send(this, Path.resolve("public", "index.html"))
-// }).routes())
-// console.log(apiRouter.stack.map(i => i.path));
-// app.use(notFound)
+app.use(defaultRouter.routes())
+
+app.use(apiRouter.routes())
+
+app.use(notFound)
 
 app.listen(3000);
 
