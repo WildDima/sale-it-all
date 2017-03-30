@@ -1,13 +1,28 @@
 {
   "products" : {
     "1" : {
-      "name": "lorem1"
+      "name": "lorem1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada elit et purus suscipit accumsan. Vestibulum vitae mi orci. Nam ullamcorper lorem fermentum metus ornare, quis elementum augue efficitur. Proin elementum, nisl nec congue rhoncus, dolor ante malesuada risus, nec laoreet nulla lectus eget magna. In mauris neque, convallis vitae neque ac, semper consequat enim. Sed bibendum leo vel dolor pretium, eget faucibus eros molestie. Praesent rutrum aliquam nibh. Vivamus eu eros vitae justo consequat auctor et vel arcu.",
+      "image": {
+        "thumb": "http://lorempixel.com/100/100/nature/",
+        "full": "http://lorempixel.com/512/307/nature/"
+      }
     },
     "2" : {
-      "name": "ipsum2"
+      "name": "ipsum2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada elit et purus suscipit accumsan. Vestibulum vitae mi orci. Nam ullamcorper lorem fermentum metus ornare, quis elementum augue efficitur. Proin elementum, nisl nec congue rhoncus, dolor ante malesuada risus, nec laoreet nulla lectus eget magna. In mauris neque, convallis vitae neque ac, semper consequat enim. Sed bibendum leo vel dolor pretium, eget faucibus eros molestie. Praesent rutrum aliquam nibh. Vivamus eu eros vitae justo consequat auctor et vel arcu.",
+      "image": {
+        "thumb": "http://loremflickr.com/100/100",
+        "full": "http://loremflickr.com/512/307"
+      }
     },
     "3" : {
-      "name": "dolor3"
+      "name": "dolor3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada elit et purus suscipit accumsan. Vestibulum vitae mi orci. Nam ullamcorper lorem fermentum metus ornare, quis elementum augue efficitur. Proin elementum, nisl nec congue rhoncus, dolor ante malesuada risus, nec laoreet nulla lectus eget magna. In mauris neque, convallis vitae neque ac, semper consequat enim. Sed bibendum leo vel dolor pretium, eget faucibus eros molestie. Praesent rutrum aliquam nibh. Vivamus eu eros vitae justo consequat auctor et vel arcu.",
+      "image": {
+        "thumb": "http://lorempixel.com/100/100/nature/",
+        "full": "http://lorempixel.com/512/307/nature/"
+      }
     }
   },
   "companies" : {

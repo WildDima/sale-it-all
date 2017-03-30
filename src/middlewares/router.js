@@ -7,11 +7,7 @@ router.use(koaBody)
 
 router.get('/*', function* (next) {
   const path = Path.resolve('public', 'index.html')
-  // let body = yield fs.readFile(path, (err, data) => {
-  //   if (err) throw(err)
-  //   return data
-  // })
-  let body = fs.readFileSync(path, 'utf8')
+  const body = fs.readFileSync(path, 'utf8')
   this.response.body = body
   yield next
 })
