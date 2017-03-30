@@ -5,16 +5,18 @@ import Product from './Product'
 import ProductPage from './ProductPage'
 import Loading from 'react-loading'
 import LoadingBar from './LoadingBar'
+import Error from './Error'
 import { connect, PromiseState } from 'react-refetch'
 import { mapValues } from 'lodash'
+import ProductForm from './ProductForm'
 
 const ProductsList = (props) => {
   const { products, productRemove } = props
 
   return(
-    <div>
+    <div className='row'>
     {Object.keys(products).map((key) => {
-      return(<div key={key} className="col-xs-6 col-sm-4 col-md-3">
+      return(<div key={key} className="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-lg-2">
         <Product id={key}
                  product={products[key]}
                  productRemove={productRemove}/>
@@ -26,7 +28,7 @@ const ProductsList = (props) => {
 
 const Products = (props) => {
   return(
-    <div className="row">
+    <div>
       <ProductsList {...props} />
       <hr/>
       <Route path={`/products/:id`} component={ProductPage}/>
@@ -37,15 +39,20 @@ const Products = (props) => {
 
 class ProductsPage extends Component {
   render() {
-    const { productsFetch, productRemove } = this.props
+    const { productsFetch,
+            productRemove,
+            productCreate } = this.props
 
     if (productsFetch.pending) {
       return <LoadingBar />
     } else if (productsFetch.rejected) {
-      return(<h1>ERROR</h1>)
+      return <Error {...productsFetch}/>
     } else if (productsFetch.fulfilled) {
       return(
-        <Products products={productsFetch.value} productRemove={productRemove}/>
+        <div>
+          <Products products={productsFetch.value} productRemove={productRemove}/>
+          <ProductForm productCreate={productCreate}/>
+        </div>
       )
     }
   }
@@ -54,9 +61,30 @@ class ProductsPage extends Component {
 export default connect(props => ({
   productsFetch: '/api/products',
   productRemove: id => ({
-    productsFetch: {
+    productRemoving: {
+      method: 'DELETE',
       url: `/api/products/${id}`,
-      method: 'DELETE'
+      andThen: () => ({
+        productsFetch: {
+          url: '/api/products',
+          refreshing: true,
+          force: true
+        }
+      })
+    }
+  }),
+  productCreate: product => ({
+    productCreation: {
+      method: 'POST',
+      url: 'api/products',
+      body: JSON.stringify({ product }),
+      andThen: () => ({
+        productsFetch: {
+          url: '/api/products',
+          refreshing: true,
+          force: true
+        }
+      })
     }
   })
 }))(ProductsPage)

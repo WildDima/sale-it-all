@@ -17,7 +17,7 @@ const Product = (props) => {
   const { id, product, productRemove } = props
 
   return(
-    <div>
+    <div className='box'>
       <img src={product.image.thumb}/>
       <hr/>
       <CustomLink to={`/products/${id}`}>{product.name}</CustomLink>

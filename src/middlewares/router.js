@@ -1,9 +1,9 @@
 const router = require('koa-router')()
-const koaBody = require('koa-body')()
+const koaBody = require('koa-body')
 const fs = require('fs')
 const Path = require('path')
 
-router.use(koaBody)
+router.use(koaBody({strict: false}))
 
 router.get('/*', function* (next) {
   const path = Path.resolve('public', 'index.html')
