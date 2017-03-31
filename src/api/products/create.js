@@ -4,7 +4,7 @@ let crypto = require('crypto')
 
 router.post('/products', function *(next) {
   let x = Math.random()
-  let id = crypto.createHash('md5').update(x.toString()).digest()
+  let id = crypto.createHash('md5').update(x.toString()).digest('hex')
   db.products[id] = Object.assign(
     this.request.body.product,
     {
