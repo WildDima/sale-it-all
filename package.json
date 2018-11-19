@@ -4,7 +4,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --output-public-path=public/js/ --inline --content-base public/"
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "nodemon app.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -14,12 +16,23 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "http-server": "^0.9.0",
+    "npm-run-all": "^4.0.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "koa": "^2.2.0",
+    "koa-body": "^1.6.0",
+    "koa-combine-routers": "^0.1.1",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^5.4.0",
+    "koa-send": "^3.3.0",
+    "koa-static": "^3.0.0",
+    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-loading": "0.0.9",
+    "react-refetch": "^1.0.0",
     "react-router-dom": "^4.0.0"
   }
 }

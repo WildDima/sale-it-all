@@ -10,10 +10,10 @@ export default class CartPage extends Component {
         <hr/>
           <ul>
             <li>
-              <Product name='lorem'/>
+              <Product product={{ name: 'lorem', image: { thumb: '', full: '' }}} id={1}/>
             </li>
             <li>
-              <Product name='sit'/>
+              <Product product={{ name: 'sit', image: { thumb: '', full: '' }}} id={1}/>
             </li>
           </ul>
           <hr/>
